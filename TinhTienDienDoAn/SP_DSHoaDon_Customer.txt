@@ -1,0 +1,43 @@
+create proc [dbo].[SP_DSHOADON] (@tt int, @username varchar(50))
+as
+begin
+	if(@tt = 1)
+		begin
+			select i.ID, i.Invoice_Date, i.Level, (i.End_Num - i.Start_Num) as KWH, i.ID_Staff_Write, i.Total_Price
+			into #tam
+			from CUSTOMERS cus inner join E_METERS e on cus.ID = e.ID_Customer inner join E_METER_DETAILS ed 
+			on e.ID_E_METER = ed.ID_E_METER inner join INVOICES i on ed.ID = i.ID_Details
+			where cus.Account_Customer = @username and i.Invoice_Status = @tt
+
+			---Lấy tên nhân viên---
+			select  t.ID, t.Invoice_Date, t.KWH, t.Level, t.Total_Price, (p.Firstname + ' ' + p.Middlename + ' ' + p.Lastname) as FNAME
+			from #tam t inner join STAFFS s on t.ID_Staff_Write = s.ID inner join ACCOUNTS a on s.Account_Staffs = a.Account_Username 
+			inner join PERSON_INFOS p on a.CCCD = p.CCCD
+		end
+	else if(@tt = 0)
+		begin
+			select i.ID, i.Invoice_Date, i.Level, (i.End_Num - i.Start_Num) as KWH, i.ID_Staff_Write, i.Total_Price
+			into #tpm
+			from CUSTOMERS cus inner join E_METERS e on cus.ID = e.ID_Customer inner join E_METER_DETAILS ed 
+			on e.ID_E_METER = ed.ID_E_METER inner join INVOICES i on ed.ID = i.ID_Details
+			where cus.Account_Customer = @username and i.Invoice_Status = @tt
+
+			---Lấy tên nhân viên---
+			select  t.ID, t.Invoice_Date, t.KWH, t.Level, t.Total_Price, (p.Firstname + ' ' + p.Middlename + ' ' + p.Lastname) as FNAME
+			from #tpm t inner join STAFFS s on t.ID_Staff_Write = s.ID inner join ACCOUNTS a on s.Account_Staffs = a.Account_Username 
+			inner join PERSON_INFOS p on a.CCCD = p.CCCD
+		end
+	else if(@tt = 2)
+		begin
+			select i.ID, i.Invoice_Date, i.Level, (i.End_Num - i.Start_Num) as KWH, i.ID_Staff_Write, i.Total_Price
+			into #t
+			from CUSTOMERS cus inner join E_METERS e on cus.ID = e.ID_Customer inner join E_METER_DETAILS ed 
+			on e.ID_E_METER = ed.ID_E_METER inner join INVOICES i on ed.ID = i.ID_Details
+			where cus.Account_Customer = @username
+
+			---Lấy tên nhân viên---
+			select  t.ID, t.Invoice_Date, t.KWH, t.Level, t.Total_Price, (p.Firstname + ' ' + p.Middlename + ' ' + p.Lastname) as FNAME
+			from #t t inner join STAFFS s on t.ID_Staff_Write = s.ID inner join ACCOUNTS a on s.Account_Staffs = a.Account_Username 
+			inner join PERSON_INFOS p on a.CCCD = p.CCCD
+		end
+end

@@ -5,8 +5,8 @@ import Model.Staffs;
 
 
 public class AccountLogin {
-    private static Customers CustomersLogin;
-    private static Staffs StaffsLogin;
+    public static Customers CustomersLogin;
+    public static Staffs StaffsLogin;
 
     public static Customers getCustomersLogin() {
         return CustomersLogin;

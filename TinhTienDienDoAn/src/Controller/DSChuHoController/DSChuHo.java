@@ -8,6 +8,7 @@ import LayMotSoUIdepTaiDay.BangDanhSach;
 import Model.Assignments;
 import Model.Customers;
 import Model.E_Meters;
+import Model.Invoices;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -17,6 +18,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import Controller.DAO.InvoicesDAO;
+import Controller.DAO.SupportDAO;
+import Controller.DSHoaDonDienController.DSHoaDonDien;
+import Model.SupportModel;
 
 public class DSChuHo {
     private static List<Customers> ListCustomer = new ArrayList<>();;
@@ -26,6 +31,7 @@ public class DSChuHo {
         try {
             for(Customers customers : new CustomerDAO().getAll()){
                 List <E_Meters> LstE_MetersTemp = new ArrayList<>();
+                List <Invoices> LstInvoices = new ArrayList<>();
                 for(Assignments assignments : new AssignmentsDAO().getAll()){
                     if(assignments.getID_Customer().equals(customers.getID_Customer())){
                         for(E_Meters e_Meters : new DSE_Meter().KhoiTaoListE_Meters()){
@@ -35,7 +41,15 @@ public class DSChuHo {
                         }
                     }
                 }
+                
+                for(SupportModel supportModel : new SupportDAO().getIDChuHoIDInvoices()){
+                    if(supportModel.getID_Customer().equals(customers.getID_Customer())){
+                        Invoices i = DSHoaDonDien.SearchObjID(supportModel.getID_Invoices());
+                        LstInvoices.add(i);
+                    }
+                }
                 customers.setListE_Meter(LstE_MetersTemp);
+                customers.setListInvoices(LstInvoices);
                 ListCustomer.add(customers);                
             }
         } catch (Exception ex) {

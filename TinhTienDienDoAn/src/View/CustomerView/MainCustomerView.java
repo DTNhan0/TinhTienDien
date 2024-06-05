@@ -5,6 +5,7 @@ import LayMotSoUIdepTaiDay.ButtonMenu;
 import LayMotSoUIdepTaiDay.Chart.ModelChart;
 import MainRunCode.AccountLogin;
 import Model.Customers;
+import View.CustomerView.DanhSachCongToDienCSView.DSCongToDienCSView;
 import View.Login.Login;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -58,12 +59,8 @@ public final class MainCustomerView extends javax.swing.JFrame {
         HoaDonChuaThanhToanTrangThai.setIcon(imageTien);
         
         //Thêm button nào thì add vào list
-
-        ListButton.add(TrangChuBt);
         ListButton.add(HoaDonDienBt);
         ListButton.add(DangXuatBt);
-        ListButton.add(ThongtinCaNhanbtn);
-        ListButton.add(TheoDoiDienBt);
         
         //Xử lý chart
         this.XuLyChart();
@@ -141,9 +138,7 @@ public final class MainCustomerView extends javax.swing.JFrame {
         MainBorder = new LayMotSoUIdepTaiDay.PanelBorder();
         Menu = new LayMotSoUIdepTaiDay.Menu();
         LogoApp = new javax.swing.JLabel();
-        TrangChuBt = new LayMotSoUIdepTaiDay.ButtonMenu();
         DangXuatBt = new LayMotSoUIdepTaiDay.ButtonMenu();
-        ThongtinCaNhanbtn = new LayMotSoUIdepTaiDay.ButtonMenu();
         MenuSpr = new javax.swing.JSeparator();
         MenuSpr1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
@@ -153,7 +148,6 @@ public final class MainCustomerView extends javax.swing.JFrame {
         SdtLbl = new javax.swing.JLabel();
         AccLbl = new javax.swing.JLabel();
         HoaDonDienBt = new LayMotSoUIdepTaiDay.ButtonMenu();
-        TheoDoiDienBt = new LayMotSoUIdepTaiDay.ButtonMenu();
         MainPanel = new javax.swing.JPanel();
         BarChart1 = new LayMotSoUIdepTaiDay.Chart.Chart();
         BarChart2 = new LayMotSoUIdepTaiDay.Chart.Chart();
@@ -178,15 +172,6 @@ public final class MainCustomerView extends javax.swing.JFrame {
         LogoApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/logo.png"))); // NOI18N
         LogoApp.setText("Welcome Customer");
 
-        TrangChuBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/5.png"))); // NOI18N
-        TrangChuBt.setText("Trang chủ");
-        TrangChuBt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TrangChuBt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TrangChuBtActionPerformed(evt);
-            }
-        });
-
         DangXuatBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/Logout.png"))); // NOI18N
         DangXuatBt.setText("Đăng xuất");
         DangXuatBt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -194,15 +179,6 @@ public final class MainCustomerView extends javax.swing.JFrame {
         DangXuatBt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DangXuatBtActionPerformed(evt);
-            }
-        });
-
-        ThongtinCaNhanbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/9.png"))); // NOI18N
-        ThongtinCaNhanbtn.setText("Thông tin cá nhân");
-        ThongtinCaNhanbtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        ThongtinCaNhanbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ThongtinCaNhanbtnActionPerformed(evt);
             }
         });
 
@@ -237,20 +213,11 @@ public final class MainCustomerView extends javax.swing.JFrame {
         AccLbl.setText("NULL");
 
         HoaDonDienBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/2.png"))); // NOI18N
-        HoaDonDienBt.setText("Hóa đơn điện");
+        HoaDonDienBt.setText("Danh sách công tơ điện");
         HoaDonDienBt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         HoaDonDienBt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HoaDonDienBtActionPerformed(evt);
-            }
-        });
-
-        TheoDoiDienBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/icons8_eye_20px_1.png"))); // NOI18N
-        TheoDoiDienBt.setText("Theo dõi điện");
-        TheoDoiDienBt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TheoDoiDienBt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TheoDoiDienBtActionPerformed(evt);
             }
         });
 
@@ -263,9 +230,7 @@ public final class MainCustomerView extends javax.swing.JFrame {
             .addGroup(MenuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TrangChuBt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DangXuatBt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ThongtinCaNhanbtn, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
                     .addGroup(MenuLayout.createSequentialGroup()
                         .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LogoApp)
@@ -279,9 +244,8 @@ public final class MainCustomerView extends javax.swing.JFrame {
                                     .addComponent(HoTenLbl)
                                     .addComponent(AccLbl)
                                     .addComponent(SdtLbl))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(HoaDonDienBt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TheoDoiDienBt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 19, Short.MAX_VALUE))
+                    .addComponent(HoaDonDienBt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         MenuLayout.setVerticalGroup(
@@ -308,13 +272,7 @@ public final class MainCustomerView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MenuSpr1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TrangChuBt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TheoDoiDienBt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(HoaDonDienBt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ThongtinCaNhanbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DangXuatBt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -402,27 +360,17 @@ public final class MainCustomerView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void TrangChuBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrangChuBtActionPerformed
-            ButtonNhan(TrangChuBt);
-    }//GEN-LAST:event_TrangChuBtActionPerformed
-
     private void DangXuatBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DangXuatBtActionPerformed
             ButtonNhan(DangXuatBt);
             this.dispose();
             new Login().setVisible(true);
     }//GEN-LAST:event_DangXuatBtActionPerformed
 
-    private void ThongtinCaNhanbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThongtinCaNhanbtnActionPerformed
-
-    }//GEN-LAST:event_ThongtinCaNhanbtnActionPerformed
-
     private void HoaDonDienBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HoaDonDienBtActionPerformed
-
+            ButtonNhan(HoaDonDienBt);
+            this.setForm(new DSCongToDienCSView(this)); 
+            CapNhatBangTrangThai();
     }//GEN-LAST:event_HoaDonDienBtActionPerformed
-
-    private void TheoDoiDienBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TheoDoiDienBtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TheoDoiDienBtActionPerformed
 
     public void setForm(JComponent com){
         MainPanel.removeAll();
@@ -458,10 +406,7 @@ public final class MainCustomerView extends javax.swing.JFrame {
     private javax.swing.JSeparator MenuSpr1;
     private javax.swing.JLabel SdtLbl;
     private LayMotSoUIdepTaiDay.SimpleTitleBar SimpleMainTitleBar;
-    private LayMotSoUIdepTaiDay.ButtonMenu TheoDoiDienBt;
-    private LayMotSoUIdepTaiDay.ButtonMenu ThongtinCaNhanbtn;
     private LayMotSoUIdepTaiDay.PanelTrangThai TongTienDienTrangThai;
-    private LayMotSoUIdepTaiDay.ButtonMenu TrangChuBt;
     private javax.swing.JLayeredPane TrangThaiLp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

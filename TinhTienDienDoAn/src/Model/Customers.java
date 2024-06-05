@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customers extends Accounts{
-    private List<E_Meters> ListE_Meter = new  ArrayList<>();
+    private List<E_Meters> ListE_Meter = new ArrayList<>();
+    private List<Invoices> ListInvoices = new ArrayList<>();
     private Integer ID_Customer;
 
     public Customers(){};
@@ -29,6 +30,14 @@ public class Customers extends Accounts{
 
     public void setID_Customer(Integer ID_Customer) {
         this.ID_Customer = ID_Customer;
+    }
+
+    public List<Invoices> getListInvoices() {
+        return ListInvoices;
+    }
+
+    public void setListInvoices(List<Invoices> ListInvoices) {
+        this.ListInvoices = ListInvoices;
     }
     
 }

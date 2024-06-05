@@ -92,9 +92,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="TrangChuBt" alignment="0" max="32767" attributes="0"/>
                           <Component id="DangXuatBt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="ThongtinCaNhanbtn" alignment="0" pref="236" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="LogoApp" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -112,10 +110,9 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
                           </Group>
                           <Component id="HoaDonDienBt" alignment="0" max="32767" attributes="0"/>
-                          <Component id="TheoDoiDienBt" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -148,13 +145,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="MenuSpr1" min="-2" pref="3" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="TrangChuBt" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="TheoDoiDienBt" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="HoaDonDienBt" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="ThongtinCaNhanbtn" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="DangXuatBt" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -177,20 +168,6 @@
                 <Property name="text" type="java.lang.String" value="Welcome Customer"/>
               </Properties>
             </Component>
-            <Component class="LayMotSoUIdepTaiDay.ButtonMenu" name="TrangChuBt">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icon/5.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Trang ch&#x1ee7;"/>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TrangChuBtActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="LayMotSoUIdepTaiDay.ButtonMenu" name="DangXuatBt">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -204,20 +181,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DangXuatBtActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="LayMotSoUIdepTaiDay.ButtonMenu" name="ThongtinCaNhanbtn">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icon/9.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Th&#xf4;ng tin c&#xe1; nh&#xe2;n"/>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ThongtinCaNhanbtnActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="MenuSpr">
@@ -311,27 +274,13 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Icon/2.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="H&#xf3;a &#x111;&#x1a1;n &#x111;i&#x1ec7;n"/>
+                <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch c&#xf4;ng t&#x1a1; &#x111;i&#x1ec7;n"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HoaDonDienBtActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="LayMotSoUIdepTaiDay.ButtonMenu" name="TheoDoiDienBt">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icon/icons8_eye_20px_1.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Theo d&#xf5;i &#x111;i&#x1ec7;n"/>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TheoDoiDienBtActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

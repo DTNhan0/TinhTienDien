@@ -64,6 +64,32 @@ public class AccountsDAO {
         }
     }
     
+    public void AddIsDAO(Accounts Acc){
+        //Thêm Account vào một Account mới 
+        String SQL = "INSERT INTO [dbo].[ACCOUNTS] \n" +
+                     "VALUES(?, ?, ?, ?, ?);";
+        try {
+            Connection con = new DBS().getConnection();
+            PreparedStatement rs = con.prepareStatement(SQL);
+            
+            rs.setString(1, Acc.getAccount_Username());
+            rs.setString(2, Acc.getAccount_Password());
+            rs.setString(3, Acc.getCCCD());            
+            rs.setInt(4, Acc.getRole());    
+            
+            int rowsAffected = rs.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Đã thêm người dùng vào hệ thống!!!");
+            } else {
+                System.out.println("Lỗi không thể thêm người dùng vào hệ thống!!!");
+            }            
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.out.println("Lỗi hệ thống!!! (AccountsDAO) - AddDAO");
+        }
+    }
+    
     public void DeleteByStatusDAO(String Account){
         String SQL = "UPDATE [dbo].[ACCOUNTS]\n" +
                      "SET [Status] = 0\n" +

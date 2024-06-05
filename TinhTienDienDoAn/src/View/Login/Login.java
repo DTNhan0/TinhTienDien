@@ -13,6 +13,7 @@ import Model.Customers;
 import Model.Personal_Infos;
 import Model.Staffs;
 import View.AdminView.MainAdminView;
+import View.AdminView.QLPhanQuyenTKView.QLPhanQuyenTKMainView;
 import View.CustomerView.MainCustomerView;
 import View.StaffView.MainStaffView;
 import javax.swing.JOptionPane;
@@ -235,6 +236,8 @@ public class Login extends javax.swing.JFrame {
                 AccountLogin accountLogin = new AccountLogin();
                 
                 int privilege=new LoginController().getPrivilege(userName, passWord);
+                
+                
                 if(privilege==2){
                     this.dispose();
                     MainAdminView mainAdminView= new MainAdminView();

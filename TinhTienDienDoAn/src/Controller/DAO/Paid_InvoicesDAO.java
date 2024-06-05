@@ -29,4 +29,29 @@ public class Paid_InvoicesDAO {
         }
         return ListPaid_Invoices;
     }     
+    
+    public void AddDAO(Paid_Invoices paid_Invoices){
+        String SQL = "INSERT INTO [dbo].[PAID_INVOICES] ([ID_INVOICES], [Date], [Invoice_PayMethod]) VALUES (?, ?, ?)";
+        try {
+            Connection con = new DBS().getConnection();
+            PreparedStatement ps = con.prepareStatement(SQL);
+            
+            Date sqlDate = new java.sql.Date(paid_Invoices.getDate_Paid().getTime());    
+            
+            ps.setInt(1, paid_Invoices.getID_Invoice());
+            ps.setDate(2, sqlDate);
+            ps.setString(3, paid_Invoices.getInvoice_Method());
+            
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Đã thêm người dùng vào hệ thống!!!");
+            } else {
+                System.out.println("Lỗi không thể thêm người dùng vào hệ thống!!!");
+            }
+        
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            System.out.println("Lỗi hệ thống!!! (CustomerDAO) - AddDAO");
+        }        
+    }
 }

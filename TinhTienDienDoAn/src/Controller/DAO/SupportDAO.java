@@ -34,4 +34,31 @@ public class SupportDAO {
         }
         return ListSupportModels;
     }    
+    
+    public List<SupportModel> getIDChuHoIDInvoices() throws Exception{
+        ListSupportModels.clear();
+        String SQL = "SELECT A.ID_Customer, I.ID FROM [dbo].[INVOICES] AS I\n" +
+                     "JOIN [dbo].[E_METER_DETAILS] AS ED\n" +
+                     "ON ED.ID = I.ID\n" +
+                     "JOIN [dbo].[E_METERS] AS EM\n" +
+                     "ON EM.ID_E_METER = ED.ID_E_Meter\n" +
+                     "JOIN [dbo].[ASSIGNMENTS] AS A\n" +
+                     "ON A.ID = EM.ID_Assignment";
+        
+        try(
+            Connection con = new DBS().getConnection();
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(SQL);
+        ){
+            while(rs.next()){
+                  SupportModel supportModel = new SupportModel();
+                  
+                  supportModel.setID_Invoices(rs.getInt("ID_Customer"));
+                  supportModel.setID_Customer(rs.getInt("ID"));
+                  
+                  ListSupportModels.add(supportModel);
+            }
+        }
+        return ListSupportModels;
+    }
 }

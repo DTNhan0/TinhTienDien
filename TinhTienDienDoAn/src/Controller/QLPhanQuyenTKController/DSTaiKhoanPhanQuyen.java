@@ -21,8 +21,7 @@ public class DSTaiKhoanPhanQuyen {
 
     public static List<Accounts> KhoiTaoListAccount() {
         try {
-            ListAccount.clear();
-            setListAccount(new AccountsDAO().getAll());
+            ListAccount = new AccountsDAO().getAll();
             return ListAccount;
         } catch (Exception ex) {
             Logger.getLogger(DSTaiKhoanPhanQuyen.class.getName()).log(Level.SEVERE, null, ex);
@@ -40,6 +39,11 @@ public class DSTaiKhoanPhanQuyen {
     
     public static void Add(Accounts Acc){
         new AccountsDAO().AddDAO(Acc);
+        ListAccount.add(Acc);
+    }
+    
+    public static void AddIs(Accounts Acc){
+        new AccountsDAO().AddIsDAO(Acc);
         ListAccount.add(Acc);
     }
     

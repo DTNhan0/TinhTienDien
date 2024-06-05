@@ -276,7 +276,7 @@ public class ThemTKPhanQuyenDialog extends javax.swing.JDialog {
                 else
                     Acc.setRole(0);
                 try{
-                    DSTaiKhoanPhanQuyen.Add(Acc);
+                    DSTaiKhoanPhanQuyen.AddIs(Acc);
                     JOptionPane.showMessageDialog(this, "Đã thêm tài khoản người dùng có CCCD: " + CCCDTf.getText());
                     this.QLPhanQuyenTKMainView.ShowThongTinTuDBS(QLPhanQuyenTKMainView.getBangDSPQTKChung());
                     this.MainAdminview.CapNhatBangTrangThai();

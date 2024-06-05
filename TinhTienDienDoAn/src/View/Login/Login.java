@@ -251,10 +251,11 @@ public class Login extends javax.swing.JFrame {
                     Staffs staffs = new DSNhanVien().SearchObjCCCD(Acc.getCCCD());
                     accountLogin.setStaffsLogin(staffs);
                     
-                    MainStaffView mainStaffView =new MainStaffView();
-                    mainStaffView.setVisible(true);
-                    mainStaffView.setSize(1500, 800);
-                    mainStaffView.setLocationRelativeTo(null);
+                    this.dispose();
+                    MainAdminView mainAdminView= new MainAdminView();
+                    mainAdminView.setVisible(true);
+                    mainAdminView.setSize(1500, 800);
+                    mainAdminView.setLocationRelativeTo(null);
                 }else if(privilege==0){
                     this.dispose();
                     

@@ -4,6 +4,8 @@ import Controller.DSHoaDonDienController.DSHoaDonDien;
 import Controller.QLPhanQuyenTKController.DSTaiKhoanPhanQuyen;
 import LayMotSoUIdepTaiDay.ButtonMenu;
 import LayMotSoUIdepTaiDay.Chart.ModelChart;
+import MainRunCode.AccountLogin;
+import Model.Staffs;
 import View.AdminView.DSChuHoView.DSChuHoMainView;
 import View.AdminView.DSCongToDienView.DSCongToDienMainView;
 import View.AdminView.DSNhanVienView.DSNhanVienMainView;
@@ -28,6 +30,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public final class MainAdminView extends javax.swing.JFrame {
+    private Staffs staffs = new Staffs();
     public List<ButtonMenu> ListButton;
     private JFrame mainFrame;
     DecimalFormat decimalFormat = new DecimalFormat("#");
@@ -87,6 +90,21 @@ public final class MainAdminView extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }}
         });
+        staffs = AccountLogin.getStaffsLogin();
+        if(staffs != null && staffs.getRoleStaff() != null){
+            DSChuHoBt.setVisible(false);
+            DsNhanVienBt.setVisible(false);
+            ThongKeBt.setVisible(false);
+            QLPhanQuyenTKBt.setVisible(false);
+            QLThongTinChungBt.setVisible(false);
+            DSCongToDienBt.setVisible(false);
+            TrangChuBt.setVisible(false);
+            if(staffs.getRoleStaff() == 0){
+                ThongTinNhapXuatBt.setVisible(false);
+            }else if(staffs.getRoleStaff() == 1){
+                ThongTinGhiDienBt.setVisible(false);
+            }
+        }
     }
     
     public void XuLyChart(){

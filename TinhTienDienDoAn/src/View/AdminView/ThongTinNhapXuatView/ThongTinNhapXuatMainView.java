@@ -7,11 +7,13 @@ import Controller.DSNhanVienController.DSNhanVien;
 import Controller.SupportFunction.StringProcessing;
 import LayMotSoUIdepTaiDay.BangDanhSach;
 import LayMotSoUIdepTaiDay.ComboboxThuong;
+import MainRunCode.AccountLogin;
 import Model.Staffs;
 import View.AdminView.MainAdminView;
 import View.AdminView.ThongTinNhapXuatView.ThongTinNhapXuatDialog.FilterLoaiDateTTNXDialog;
 import View.AdminView.ThongTinNhapXuatView.ThongTinNhapXuatDialog.SortLoaiStringTTNXDialog;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -21,13 +23,24 @@ public class ThongTinNhapXuatMainView extends javax.swing.JPanel {
     private Staffs St;
     private MainAdminView MainAdminview;
     public  List<Staffs> dsStaffs;  
+    public List<Staffs> login = new ArrayList<>();
     
     public ThongTinNhapXuatMainView(MainAdminView mainAdminView) {
         initComponents();
         this.MainAdminview = mainAdminView;
         this.setSize(MainAdminview.getMainPanel().getSize());
         
-        this.dsStaffs = new DSNhanVien().KhoiTaoListStaffs();
+        login = new ArrayList<>();
+        
+        St = AccountLogin.getStaffsLogin();
+        for(Staffs staffs : DSNhanVien.KhoiTaoListStaffs()){
+            if(St.getAccount_Username().equals(staffs.getAccount_Username())){
+                login.add(staffs);
+            }
+        }
+        
+        this.dsStaffs = login;
+
         ShowThongTinTuDBS(BangDSNhanVien);    
     }
 
@@ -37,6 +50,9 @@ public class ThongTinNhapXuatMainView extends javax.swing.JPanel {
         model.fireTableDataChanged(); 
         
         dsStaffs = DSNhanVien.getListStaffs();
+        if(St.getAccount_Username() != null){
+            this.dsStaffs = login;
+        }
         TableActionEventTTNhapXuat event = new TableActionEventTTNhapXuat() {
             @Override
             public void onThongTinNhapXuat(int row, MainAdminView mainAdminView, ThongTinNhapXuatMainView thongTinNhapXuatMainView) {

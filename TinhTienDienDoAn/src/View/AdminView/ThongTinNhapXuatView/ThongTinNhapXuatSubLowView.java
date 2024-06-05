@@ -13,9 +13,7 @@ import Controller.SupportFunction.StringProcessing;
 import LayMotSoUIdepTaiDay.BangDanhSach;
 import LayMotSoUIdepTaiDay.ButtonThuong;
 import Model.E_Meter_Details;
-import Model.E_Meters;
 import Model.Staffs;
-import Model.Type_Livings;
 import View.AdminView.MainAdminView;
 import View.AdminView.ThongTinNhapXuatView.ThongTinNhapXuatDialog.CapNhatTTNhapTTNXDialog;
 import View.AdminView.ThongTinNhapXuatView.ThongTinNhapXuatDialog.NhapHoaDonDialog;
@@ -25,7 +23,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ThongTinNhapXuatSubLowView extends javax.swing.JPanel {
-    private E_Meters e_Meters;
     private MainAdminView MainAdminview; 
     private Staffs staffs;
     private List <E_Meter_Details> ListE_Meter_Details = new ArrayList<>();
@@ -39,6 +36,10 @@ public class ThongTinNhapXuatSubLowView extends javax.swing.JPanel {
         this.setSize(MainAdminview.getMainPanel().getSize());
         this.thongTinNhapXuatMainView = ttnxmv;
         this.staffs = thongTinNhapXuatMainView.getSt();
+
+        for(E_Meter_Details em : staffs.getListE_Meter_Details()){
+            System.out.println(em.getID_E_Meter_Detail());
+        }
         this.ListE_Meter_Details = staffs.getListE_Meter_Details();
         
         CCCDTf.setText(staffs.getCCCD());
@@ -417,7 +418,14 @@ public class ThongTinNhapXuatSubLowView extends javax.swing.JPanel {
     }//GEN-LAST:event_CapNhatBtActionPerformed
 
     private void XuatBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XuatBtActionPerformed
-        
+        if(e_Meter_Details == null){
+               JOptionPane.showMessageDialog(this, "Vui lòng chọn thông tin điện cần cập nhật!!!");            
+        }else if(DSHoaDonDien.CheckExitsE_Meter_Details(e_Meter_Details.getID_E_Meter_Detail()) == -1){               
+               JOptionPane.showMessageDialog(this, "Hiện tại thông tin ghi điện này chựa được nhập dữ liệu điện, vui lòng nhập trước!!!");                        
+        }else{
+            ReportFrame reportFrame = new ReportFrame(MainAdminview, this);
+            reportFrame.setVisible(true);
+        }        
     }//GEN-LAST:event_XuatBtActionPerformed
 
     
@@ -452,14 +460,6 @@ public class ThongTinNhapXuatSubLowView extends javax.swing.JPanel {
         this.BangDSCongToDien = BangDSChuHo;
     }
     
-    public E_Meters getE_Meters() {
-        return e_Meters;
-    }
-
-    public void setE_Meters(E_Meters e_Meters) {
-        this.e_Meters = e_Meters;
-    }
-
     public ButtonThuong getLamMoiBt() {
         return LamMoiBt;
     }

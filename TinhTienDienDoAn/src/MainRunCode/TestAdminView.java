@@ -37,9 +37,6 @@ public class TestAdminView {
         new DSChuHo().KhoiTaoListCustomeres();
         new DSNhanVien().KhoiTaoListStaffs();
         
-        TestFrame te = new TestFrame();
-        te.setSize(500, 500);
-        te.setVisible(true);
-//        new TestAdminView().MainFormLoadding();
+        new TestAdminView().MainFormLoadding();
     }
 }

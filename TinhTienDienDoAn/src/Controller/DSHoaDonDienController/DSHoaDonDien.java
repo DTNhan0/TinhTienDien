@@ -65,7 +65,7 @@ public class DSHoaDonDien {
     public static int CheckExitsE_Meter_Details(Integer ID){
         int index = 0;
         for(Invoices invoices : ListInvoices){
-            if(invoices.getID_E_Meter_Details()== ID)
+            if(invoices.getID_E_Meter_Details().equals(ID))
                 return index;
             index++;
         }
@@ -89,8 +89,7 @@ public class DSHoaDonDien {
             if(levels.getID_Level() == 4 || levels.getID_Level() == 5)
                 index-=1;
                         
-            float DinhMuc = levels.getMaximum() - levels.getMinimum() + index;
-            System.out.println("Định mức: " + DinhMuc);            
+            float DinhMuc = levels.getMaximum() - levels.getMinimum() + index;        
             if(TotalKwh > DinhMuc){
                 TotalKwh -= DinhMuc;
                 Res += DinhMuc * levels.getValue();
@@ -108,6 +107,101 @@ public class DSHoaDonDien {
         return Res * 1000;
     }
     //***********************************************************************
+
+    public static List<String> TinhTienDienSanLuongView(E_Meter_Details e_Meter_Details){
+        float Res = 0;
+        List<String> lst = new ArrayList<>();
+        E_Meter_Details Before = DSThongTinGhiDien.FindClosetDateE_MeterDetails(e_Meter_Details);
+        float TotalKwh;        
+        if(Before == null){
+              TotalKwh = e_Meter_Details.getCurrent_Num();
+        }else{
+              TotalKwh = e_Meter_Details.getCurrent_Num() - Before.getCurrent_Num();            
+        }
+        
+
+        int index = 2;
+        for(Levels levels : new LevelsDAO().getAll()){
+            if(levels.getID_Level() == 4 || levels.getID_Level() == 5)
+                index-=1;
+                        
+            float DinhMuc = levels.getMaximum() - levels.getMinimum() + index;
+            
+            if(levels.getID_Level() == 6){
+                lst.add(String.valueOf(TotalKwh));                
+            }else{
+                lst.add(String.valueOf(DinhMuc));                
+            }
+            
+            if(TotalKwh > DinhMuc){
+                TotalKwh -= DinhMuc;
+                Res += DinhMuc * levels.getValue();
+            }else if(levels.getID_Level() == 6 && TotalKwh > 0){
+                Res += TotalKwh * levels.getValue();
+                break;
+            }else if(TotalKwh < DinhMuc && TotalKwh > 0){
+                Res += TotalKwh * levels.getValue();
+                break;
+            }
+            index++;
+        }
+        
+        while(lst.size() != 6){
+            lst.add("NULL");
+        }
+        
+        return lst;
+    }    
+    
+    public static List<String> TinhTienDienThanhTienView(E_Meter_Details e_Meter_Details){
+        float Res = 0;
+        List<String> lst = new ArrayList<>();
+        E_Meter_Details Before = DSThongTinGhiDien.FindClosetDateE_MeterDetails(e_Meter_Details);
+        float TotalKwh;        
+        if(Before == null){
+              TotalKwh = e_Meter_Details.getCurrent_Num();
+        }else{
+              TotalKwh = e_Meter_Details.getCurrent_Num() - Before.getCurrent_Num();            
+        }
+        
+
+        int index = 2;
+        for(Levels levels : new LevelsDAO().getAll()){
+            if(levels.getID_Level() == 4 || levels.getID_Level() == 5)
+                index-=1;
+                        
+            float DinhMuc = levels.getMaximum() - levels.getMinimum() + index;
+            
+            if(TotalKwh > DinhMuc){
+                TotalKwh -= DinhMuc;
+                Res += DinhMuc * levels.getValue();
+                lst.add(String.valueOf(Res * 1000));
+            }else if(levels.getID_Level() == 6 && TotalKwh > 0){
+                Res += TotalKwh * levels.getValue();
+                lst.add(String.valueOf(Res * 1000));
+                break;
+            }else if(TotalKwh < DinhMuc && TotalKwh > 0){
+                Res += TotalKwh * levels.getValue();
+                lst.add(String.valueOf(Res * 1000));
+                break;
+            }
+            index++;
+        }
+        
+        while(lst.size() != 6){
+            lst.add("NULL");
+        }
+        
+        return lst;
+    }
+    
+    public static float TotalPrice(){
+        float Sum = 0;
+        for(Invoices i : ListInvoices){
+            Sum += i.getTotal_Price();
+        }
+        return Sum;
+    }
     
     public static boolean Searching(String Text, BangDanhSach bangDanhSach, int type){
         boolean check = false;   

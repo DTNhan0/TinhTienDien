@@ -13,7 +13,6 @@ public class DSThongTinGhiDien {
     
     public static List<E_Meter_Details> KhoiTaoListE_Meters_Details() {
         try {
-            ListE_Meter_Details.clear();
             ListE_Meter_Details = new E_Meter_DetailsDAO().getAll();
             return ListE_Meter_Details;
         } catch (Exception ex) {
@@ -50,7 +49,7 @@ public class DSThongTinGhiDien {
     
     public static E_Meter_Details SearchObjID(Integer ID){
         for(E_Meter_Details e_Meter_Details : ListE_Meter_Details){
-            if(e_Meter_Details.getID_E_Meter_Detail() ==ID)
+            if(e_Meter_Details.getID_E_Meter_Detail().equals(ID))
                 return e_Meter_Details;
         }
         return null;

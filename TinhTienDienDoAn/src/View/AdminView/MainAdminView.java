@@ -1,5 +1,6 @@
 package View.AdminView;
 
+import Controller.DSHoaDonDienController.DSHoaDonDien;
 import Controller.QLPhanQuyenTKController.DSTaiKhoanPhanQuyen;
 import LayMotSoUIdepTaiDay.ButtonMenu;
 import LayMotSoUIdepTaiDay.Chart.ModelChart;
@@ -8,6 +9,7 @@ import View.AdminView.DSCongToDienView.DSCongToDienMainView;
 import View.AdminView.DSNhanVienView.DSNhanVienMainView;
 import View.AdminView.QLPhanQuyenTKView.QLPhanQuyenTKMainView;
 import View.AdminView.QLThongTinChungView.QLTTChungMainView;
+import View.AdminView.ThongKeView.ThongKeMainView;
 import View.AdminView.ThongTinGhiDienView.ThongTinGhiDienMainView;
 import View.AdminView.ThongTinNhapXuatView.ThongTinNhapXuatMainView;
 import View.AdminView.TrangChuView.TrangChuMainView;
@@ -34,7 +36,7 @@ public final class MainAdminView extends javax.swing.JFrame {
     public void CapNhatBangTrangThai(){        
         TrangThaiChuHo.setSoLuong(decimalFormat.format(DSTaiKhoanPhanQuyen.CustomerQuantity()));
         TrangThaiNhanVien.setSoLuong(decimalFormat.format(DSTaiKhoanPhanQuyen.StaffQuantity()));
-//        TrangThaiTien.setSoLuong(decimalFormat2.format(new InvoiceController().getTotalprice()) + " VNĐ");
+        TrangThaiTien.setSoLuong(decimalFormat2.format(new DSHoaDonDien().TotalPrice()) + " VNĐ");
         this.repaint();
         this.revalidate();
     }
@@ -60,7 +62,7 @@ public final class MainAdminView extends javax.swing.JFrame {
         //Thêm button nào thì add vào list
         ListButton.add(DSChuHoBt);
         ListButton.add(DsNhanVienBt);
-        ListButton.add(HoaDonDienBt);
+        ListButton.add(ThongKeBt);
         ListButton.add(QLPhanQuyenTKBt);
         ListButton.add(DangXuatBt);
         ListButton.add(QLThongTinChungBt);
@@ -142,7 +144,7 @@ public final class MainAdminView extends javax.swing.JFrame {
         QLPhanQuyenTKBt = new LayMotSoUIdepTaiDay.ButtonMenu();
         DsNhanVienBt = new LayMotSoUIdepTaiDay.ButtonMenu();
         LogoApp = new javax.swing.JLabel();
-        HoaDonDienBt = new LayMotSoUIdepTaiDay.ButtonMenu();
+        ThongKeBt = new LayMotSoUIdepTaiDay.ButtonMenu();
         DangXuatBt = new LayMotSoUIdepTaiDay.ButtonMenu();
         QLThongTinChungBt = new LayMotSoUIdepTaiDay.ButtonMenu();
         TrangChuBt = new LayMotSoUIdepTaiDay.ButtonMenu();
@@ -199,12 +201,12 @@ public final class MainAdminView extends javax.swing.JFrame {
         LogoApp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/logo.png"))); // NOI18N
         LogoApp.setText("Welcome Admin");
 
-        HoaDonDienBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/2.png"))); // NOI18N
-        HoaDonDienBt.setText("Hóa đơn điện");
-        HoaDonDienBt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        HoaDonDienBt.addActionListener(new java.awt.event.ActionListener() {
+        ThongKeBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/2.png"))); // NOI18N
+        ThongKeBt.setText("Thống kê ");
+        ThongKeBt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        ThongKeBt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HoaDonDienBtActionPerformed(evt);
+                ThongKeBtActionPerformed(evt);
             }
         });
 
@@ -275,7 +277,7 @@ public final class MainAdminView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DSChuHoBt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(HoaDonDienBt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ThongKeBt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(DangXuatBt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(QLPhanQuyenTKBt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(QLThongTinChungBt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -313,7 +315,7 @@ public final class MainAdminView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ThongTinNhapXuatBt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HoaDonDienBt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ThongKeBt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DangXuatBt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -413,9 +415,11 @@ public final class MainAdminView extends javax.swing.JFrame {
             CapNhatBangTrangThai();
     }//GEN-LAST:event_DsNhanVienBtActionPerformed
 
-    private void HoaDonDienBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HoaDonDienBtActionPerformed
-
-    }//GEN-LAST:event_HoaDonDienBtActionPerformed
+    private void ThongKeBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThongKeBtActionPerformed
+            ButtonNhan(ThongKeBt);
+            this.setForm(new ThongKeMainView(this));
+            CapNhatBangTrangThai();
+    }//GEN-LAST:event_ThongKeBtActionPerformed
 
     private void DangXuatBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DangXuatBtActionPerformed
             ButtonNhan(DangXuatBt);
@@ -490,7 +494,6 @@ public final class MainAdminView extends javax.swing.JFrame {
     private LayMotSoUIdepTaiDay.ButtonMenu DSCongToDienBt;
     private LayMotSoUIdepTaiDay.ButtonMenu DangXuatBt;
     private LayMotSoUIdepTaiDay.ButtonMenu DsNhanVienBt;
-    private LayMotSoUIdepTaiDay.ButtonMenu HoaDonDienBt;
     private LayMotSoUIdepTaiDay.Chart.LineChart LineChart;
     private javax.swing.JLabel LogoApp;
     private LayMotSoUIdepTaiDay.PanelBorder MainBorder;
@@ -500,6 +503,7 @@ public final class MainAdminView extends javax.swing.JFrame {
     private LayMotSoUIdepTaiDay.ButtonMenu QLPhanQuyenTKBt;
     private LayMotSoUIdepTaiDay.ButtonMenu QLThongTinChungBt;
     private LayMotSoUIdepTaiDay.SimpleTitleBar SimpleMainTitleBar;
+    private LayMotSoUIdepTaiDay.ButtonMenu ThongKeBt;
     private LayMotSoUIdepTaiDay.ButtonMenu ThongTinGhiDienBt;
     private LayMotSoUIdepTaiDay.ButtonMenu ThongTinNhapXuatBt;
     private LayMotSoUIdepTaiDay.ButtonMenu TrangChuBt;

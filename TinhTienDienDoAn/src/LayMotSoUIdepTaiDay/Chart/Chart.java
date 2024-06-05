@@ -147,11 +147,27 @@ public class Chart extends javax.swing.JPanel {
     }
 
     public void clear() {
-        animate = 0;
-        showLabel = null;
-        blankPlotChart.setLabelCount(0);
-        model.clear();
-        repaint();
+    animate = 0;
+    showLabel = null;
+    blankPlotChart.setLabelCount(0);
+    model.clear();
+    legends.clear();
+    panelLegend.removeAll();
+    panelLegend.repaint();
+    panelLegend.revalidate();
+    // Tìm giá trị lớn nhất trong model
+    double max = 0;
+    for (ModelChart data : model) {
+        double[] values = data.getValues();
+        for (double value : values) {
+            if (value > max) {
+                max = value;
+            }
+        }
+    }
+    // Cập nhật giá trị maximum cho trục x
+    blankPlotChart.setMaxValues(max);
+    repaint();
     }
 
     public void start() {

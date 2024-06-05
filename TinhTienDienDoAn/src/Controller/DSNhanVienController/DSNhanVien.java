@@ -49,7 +49,8 @@ public class DSNhanVien {
                 }else if(staffs.getRoleStaff() == 1){
                     for(SupportModel supportModel : new SupportDAO().getAll()){
                         if(supportModel.getID_Staff_Write() == staffs.getID_Staff()){
-                            LstE_Meter_Details.add(DSThongTinGhiDien.SearchObjID(supportModel.getID_E_Meter_Detail()));
+                            E_Meter_Details emd = DSThongTinGhiDien.SearchObjID(supportModel.getID_E_Meter_Detail());
+                            LstE_Meter_Details.add(emd);
                         }
                     }
                     staffs.setListE_Meter_Details(LstE_Meter_Details);

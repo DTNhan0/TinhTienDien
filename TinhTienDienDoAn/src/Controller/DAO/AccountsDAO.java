@@ -67,7 +67,7 @@ public class AccountsDAO {
     public void AddIsDAO(Accounts Acc){
         //Thêm Account vào một Account mới 
         String SQL = "INSERT INTO [dbo].[ACCOUNTS] \n" +
-                     "VALUES(?, ?, ?, ?, ?);";
+                     "VALUES(?, ?, ?, ?, 0);";
         try {
             Connection con = new DBS().getConnection();
             PreparedStatement rs = con.prepareStatement(SQL);

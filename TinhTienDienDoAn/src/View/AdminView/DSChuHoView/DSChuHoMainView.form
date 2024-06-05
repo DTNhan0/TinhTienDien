@@ -43,11 +43,7 @@
                                       <Component id="LamMoiBt" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="DaPhanCongCbk" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ChuaPhanCongCbk" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
                                       <Component id="TTPhanCongBt" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="XoaPhanCongBt" min="-2" max="-2" attributes="0"/>
@@ -116,21 +112,14 @@
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="DaPhanCongCbk" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="ChuaPhanCongCbk" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="PhanCongBt" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="XoaPhanCongBt" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="TTPhanCongBt" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="PhanCongBt" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="XoaPhanCongBt" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="TTPhanCongBt" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="DangChonLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="DangChonTf" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -437,46 +426,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TTPhanCongBtActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="LayMotSoUIdepTaiDay.CheckBox" name="DaPhanCongCbk">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
-        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="PhanCongGrp"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="&#x110;&#xe3; ph&#xe2;n c&#xf4;ng"/>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DaPhanCongCbkActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="LayMotSoUIdepTaiDay.CheckBox" name="ChuaPhanCongCbk">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
-        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-          <ComponentRef name="PhanCongGrp"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Ch&#x1b0;a ph&#xe2;n c&#xf4;ng"/>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="14" style="1"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChuaPhanCongCbkActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

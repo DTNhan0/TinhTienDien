@@ -88,8 +88,6 @@ public class DSChuHoMainView extends javax.swing.JPanel {
         PhanCongBt = new LayMotSoUIdepTaiDay.ButtonThuong();
         XoaPhanCongBt = new LayMotSoUIdepTaiDay.ButtonThuong();
         TTPhanCongBt = new LayMotSoUIdepTaiDay.ButtonThuong();
-        DaPhanCongCbk = new LayMotSoUIdepTaiDay.CheckBox();
-        ChuaPhanCongCbk = new LayMotSoUIdepTaiDay.CheckBox();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -234,28 +232,6 @@ public class DSChuHoMainView extends javax.swing.JPanel {
             }
         });
 
-        DaPhanCongCbk.setBackground(new java.awt.Color(0, 0, 0));
-        PhanCongGrp.add(DaPhanCongCbk);
-        DaPhanCongCbk.setForeground(new java.awt.Color(0, 0, 0));
-        DaPhanCongCbk.setText("Đã phân công");
-        DaPhanCongCbk.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        DaPhanCongCbk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DaPhanCongCbkActionPerformed(evt);
-            }
-        });
-
-        ChuaPhanCongCbk.setBackground(new java.awt.Color(0, 0, 0));
-        PhanCongGrp.add(ChuaPhanCongCbk);
-        ChuaPhanCongCbk.setForeground(new java.awt.Color(0, 0, 0));
-        ChuaPhanCongCbk.setText("Chưa phân công");
-        ChuaPhanCongCbk.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ChuaPhanCongCbk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChuaPhanCongCbkActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -277,10 +253,7 @@ public class DSChuHoMainView extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(LamMoiBt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(DaPhanCongCbk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ChuaPhanCongCbk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
+                                        .addGap(151, 151, 151)
                                         .addComponent(TTPhanCongBt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(XoaPhanCongBt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -330,16 +303,11 @@ public class DSChuHoMainView extends javax.swing.JPanel {
                                 .addComponent(TimKiemBt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(LamMoiBt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(DaPhanCongCbk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ChuaPhanCongCbk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(PhanCongBt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(XoaPhanCongBt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TTPhanCongBt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(PhanCongBt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(XoaPhanCongBt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TTPhanCongBt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DangChonLbl)
                     .addComponent(DangChonTf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -478,96 +446,10 @@ public class DSChuHoMainView extends javax.swing.JPanel {
         }        
     }//GEN-LAST:event_TTPhanCongBtActionPerformed
 
-    private void DaPhanCongCbkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DaPhanCongCbkActionPerformed
-        try {
-            BangDSChuHo.removeAll();
-            DefaultTableModel model = (DefaultTableModel) BangDSChuHo.getModel();
-            model.getDataVector().removeAllElements();
-            model.fireTableDataChanged();
-            dsChuHo.clear();
-            
-            //Bug lỏ, vẫn chưa tìm ra nguyên nhân
-            new DSChuHo().KhoiTaoListCustomeres();
-            
-            for(Assignments assignments : new AssignmentsDAO().getAll()){
-                if(assignments.getID_Staff_Write() != 0){
-                    Customers customerTemp1 = new Customers();
-                    customerTemp1 = new DSChuHo().SearchObjID(assignments.getID_Customer());
-                    dsChuHo.add(customerTemp1);
-                }
-                
-            }
-            
-            model.setRowCount(0);
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            
-            for(Customers customers : dsChuHo){
-                String name = customers.getFirstname() + " " + customers.getMiddleName()+ " " + customers.getLastname();
-                String Ten = new StringProcessing().Name(name);
-                
-                Object[] rowData = {
-                    customers.getCCCD(), Ten, dateFormat.format(customers.getDOB()),
-                    customers.getAddress(), customers.getPhone(), customers.getAccount_Username(),
-                    customers.getAccount_Password()
-                };
-                
-                model.addRow(rowData);
-            }
-            StringProcessing.StringSortingTable(BangDSChuHo, 0, true);
-            model.fireTableDataChanged();
-        } catch (Exception ex) {
-            Logger.getLogger(DSChuHoMainView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_DaPhanCongCbkActionPerformed
-
-    private void ChuaPhanCongCbkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChuaPhanCongCbkActionPerformed
-        try {
-            BangDSChuHo.removeAll();
-            DefaultTableModel model = (DefaultTableModel) BangDSChuHo.getModel();
-            model.getDataVector().removeAllElements();
-            model.fireTableDataChanged();
-            dsChuHo.clear();
-            
-            //Bug lỏ, vẫn chưa tìm ra nguyên nhân
-            new DSChuHo().KhoiTaoListCustomeres();
-            
-            for(Assignments assignments : new AssignmentsDAO().getAll()){
-                if(assignments.getID_Staff_Write() == 0){
-                    Customers customerTemp = new Customers();
-                    customerTemp = new DSChuHo().SearchObjID(assignments.getID_Customer());
-                    dsChuHo.add(customerTemp);                    
-                }
-                
-            }
-            
-            model.setRowCount(0);
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            
-            for(Customers customers : dsChuHo){
-                String name = customers.getFirstname() + " " + customers.getMiddleName()+ " " + customers.getLastname();
-                String Ten = new StringProcessing().Name(name);
-                
-                Object[] rowData = {
-                    customers.getCCCD(), Ten, dateFormat.format(customers.getDOB()),
-                    customers.getAddress(), customers.getPhone(), customers.getAccount_Username(),
-                    customers.getAccount_Password()
-                };
-                
-                model.addRow(rowData);
-            }
-            StringProcessing.StringSortingTable(BangDSChuHo, 0, true);
-            model.fireTableDataChanged();
-        } catch (Exception ex) {
-            Logger.getLogger(DSChuHoMainView.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_ChuaPhanCongCbkActionPerformed
-
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private LayMotSoUIdepTaiDay.BangDanhSach BangDSChuHo;
     private javax.swing.JScrollPane BangSrllp;
-    private LayMotSoUIdepTaiDay.CheckBox ChuaPhanCongCbk;
-    private LayMotSoUIdepTaiDay.CheckBox DaPhanCongCbk;
     private javax.swing.JLabel DangChonLbl;
     private javax.swing.JTextField DangChonTf;
     private LayMotSoUIdepTaiDay.ButtonThuong LamMoiBt;

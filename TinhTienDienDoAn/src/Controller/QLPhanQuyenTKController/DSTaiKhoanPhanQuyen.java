@@ -39,11 +39,21 @@ public class DSTaiKhoanPhanQuyen {
     
     public static void Add(Accounts Acc){
         new AccountsDAO().AddDAO(Acc);
+        if(Acc.getRole() == 1){
+            new StaffDAO().AddDAO(Acc);
+        }else if (Acc.getRole() == 0){
+            new CustomerDAO().AddDAO(Acc);
+        }
         ListAccount.add(Acc);
     }
     
     public static void AddIs(Accounts Acc){
         new AccountsDAO().AddIsDAO(Acc);
+        if(Acc.getRole() == 1){
+            new StaffDAO().AddDAO(Acc);
+        }else if (Acc.getRole() == 0){
+            new CustomerDAO().AddDAO(Acc);
+        }
         ListAccount.add(Acc);
     }
     
